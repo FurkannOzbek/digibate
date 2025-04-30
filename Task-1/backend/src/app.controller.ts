@@ -6,6 +6,7 @@ import { AskAiDto } from './dto/askAi.dto';
 export class AppController {
   // Initilazing logger for logging messages
   private readonly logger = new Logger(AppController.name);
+
   constructor(private readonly appService: AppService) {}
  // Default endpoint to check if the server is running
   @Get()
@@ -19,7 +20,9 @@ export class AppController {
   askAi(@Body() askAiDto: AskAiDto): string {
     if(!askAiDto.message) {
       throw new BadRequestException('Message should not be empty');}
-    this.logger.log(`Received message:${askAiDto.message} at ${new Date()}`);
+
+      // Logging the received message and the current date
+    this.logger.log(`Received message: [${askAiDto.message}] at [${new Date()}]`);
     return this.appService.askAi(askAiDto.message);
   }
 }
