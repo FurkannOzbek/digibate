@@ -1,27 +1,224 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
+:host {
+  display: block;
   height: 100%;
-  font-family: "Mona Sans", sans-serif;
-  background-color: #f5f5f5;
+  width: 100%;
 }
 
 .wrapper {
-  padding: 40px;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 320px 40px 320px;
+
   margin: 0;
-  box-sizing: border-box;
+  gap: 31px;
+  height: 100vh;
+  width: 100%;
 }
 .title-container {
   display: flex;
   align-items: center;
   padding-right: 26px;
   padding-left: 26px;
-  height: 40px;
+  height: 5.5%;
 }
 .title {
   font-weight: 600;
   font-size: 32px;
   line-height: 40px;
+}
+.prompt-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  height: 85%;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+.prompt-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 29%;
+}
+.prompt-label {
+  height: 24%;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+}
+.prompt-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 76%;
+  border: 1px solid #7b7484;
+  border-radius: 8px;
+  padding: 16px;
+}
+.suggestion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 27%;
+}
+
+.prompt-input {
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  box-shadow: 1px;
+  height: 70%;
+  overflow: hidden;
+  resize: none;
+  font-family: inherit;
+}
+
+.prompt-input-button {
+  height: 40%;
+}
+/* Removing default behavior of input element */
+.prompt-input:focus {
+  outline: none;
+}
+.generate-button {
+  position: relative; /* Required for absolute positioning of ::before */
+  overflow: hidden; /* Keep the ::before element contained within button boundaries */
+  background-color: #ede6f1;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  height: 100%;
+  padding: 0 16px;
+  min-width: 160px;
+  color: #5120a1;
+  border: none;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  line-height: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Mona Sans", sans-serif;
+  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+.generate-button:hover {
+  background-color: #e0d7eb;
+  transition: background-color 0.3s ease;
+}
+.generate-button:active {
+  box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.12),
+    inset 0px 1px 1px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.1s ease;
+}
+.generate-button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25%; /* Fixed width */
+  height: 90%; /* Fixed height */
+  background-color: transparent;
+  transition: all 0.1s ease;
+  border-radius: 70% 70% 70% 40%;
+  mix-blend-mode: multiply; /* This allows text to show through */
+  transform: translate(5px, 5px); /* Position it in the corner */
+  opacity: 0; /* Initially invisible */
+}
+.generate-button:active::before {
+  background-color: #d8cae9;
+  opacity: 1; /* Make visible when active */
+}
+
+.custom-icon {
+  height: 19x;
+  width: 16px;
+  margin-right: 12px;
+}
+.suggestion-title {
+  height: 20%;
+  font-size: 16px;
+  letter-spacing: 0.15px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.suggestion-buttons {
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.suggestion-button {
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  height: 75%;
+  background-color: #efedff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3), 0px -4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  padding: 12px;
+  border-radius: 8px;
+  color: #250059;
+  font-weight: 600;
+  gap: 10px;
+}
+
+.suggestion-button-title {
+  display: flex;
+}
+.suggestion-button-title-text {
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  align-items: center;
+}
+.suggestion-button-title-icon {
+  height: 24px;
+  width: 24px;
+}
+.suggestion-button-description {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+.button-container {
+  border-top: 1px solid #c4c0da;
+  padding: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  height: 8.8%;
+  gap: 10px;
+}
+.button-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.generate-caption-button {
+  width: 184px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: #5120a1 !important;
+  color: white !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.1px !important;
+}
+.create-scratch-button {
+  width: 184px;
+  height: 44px;
+  border-radius: 8px;
+  color: #5120a1 !important;
+  color: white;
 }

@@ -1,6 +1,75 @@
 <main class="wrapper">
+    <!-- Page Title Section -->
     <div class="title-container">
         <div class="title"> Create Captions </div>
+    </div>
+    <!-- Prompt Section -->
+    <div class="prompt-container">
+        <div class="prompt-wrapper">
+            <div class="prompt-label">What is your post about? </div>
+            <div class="prompt-input-wrapper">
+                <textarea type="text" class="prompt-input"
+                    placeholder="E.g., fitness tips, product launch, summer sales..." rows="1"></textarea>
+                <div class="prompt-input-button">
+                    <button mat-extended-fab class="generate-button">
+                        <img src="assets/icons/ai-icon.png" alt="Icon" class="custom-icon">
+                        Generate topic for me
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="suggestion-wrapper">
+            <div class="suggestion-title"> Suggested topics based on your Product</div>
+            <div class="suggestion-buttons">
+                <div class="suggestion-button">
+                    <div class="suggestion-button-title">
+                        <div class="suggestion-button-title-icon">
+                            <img src="assets/icons/campaign.png" alt="Icon" class="campaing-icon">
+                        </div>
+                        <div class="suggestion-button-title-text">Promotional</div>
+                    </div>
+                    <div class="suggestion-button-description"> Lorem ipsum this is a promt complete without cats...
+                    </div>
+                </div>
+                <div class="suggestion-button">
+                    <div class="suggestion-button-title">
+                        <div class="suggestion-button-title-icon">
+                            <img src="assets/icons/rocket.png" alt="Icon" class="campaing-icon">
+                        </div>
+                        <div class="suggestion-button-title-text">Product Launch</div>
+                    </div>
+                    <div class="suggestion-button-description"> Lorem ipsum this is a promt complete without cats...
+                    </div>
+                </div>
+                <div class="suggestion-button">
+                    <div class="suggestion-button-title">
+                        <div class="suggestion-button-title-icon">
+                            <img src="assets/icons/favorite.png" alt="Icon" class="campaing-icon">
+                        </div>
+                        <div class="suggestion-button-title-text">Get Engagement</div>
+                    </div>
+                    <div class="suggestion-button-description"> Lorem ipsum this is a promt complete without cats...
+                    </div>
+                </div>
+                <div class="suggestion-button">
+                    <div class="suggestion-button-title">
+                        <div class="suggestion-button-title-icon">
+                            <img src="assets/icons/shoppingmode.png" alt="Icon" class="campaing-icon">
+                        </div>
+                        <div class="suggestion-button-title-text">Announce a Sale</div>
+                    </div>
+                    <div class="suggestion-button-description"> Lorem ipsum this is a promt complete without cats...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Buttons Section -->
+    <div class="button-container">
+        <div class="button-wrapper">
+            <button mat-stroked-button class="create-scratch-button">Create from scratch</button>
+            <button mat-raised-button class="generate-caption-button" color="primary">Generate captions</button>
+        </div>
     </div>
 
 
