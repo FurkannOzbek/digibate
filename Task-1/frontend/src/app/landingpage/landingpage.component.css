@@ -1,0 +1,27 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Mona Sans", sans-serif;
+  background-color: #f5f5f5;
+}
+
+.wrapper {
+  padding: 40px;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  padding-right: 26px;
+  padding-left: 26px;
+  height: 40px;
+}
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+}
