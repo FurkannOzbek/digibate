@@ -9,11 +9,12 @@
             <div class="prompt-label">What is your post about? </div>
             <div class="prompt-input-wrapper">
                 <textarea type="text" class="prompt-input"
-                    placeholder="E.g., fitness tips, product launch, summer sales..." rows="1"></textarea>
+                    placeholder="E.g., fitness tips, product launch, summer sales..." rows="1"
+                    [(ngModel)]="promptInput"></textarea>
                 <div class="prompt-input-button">
-                    <button mat-extended-fab class="generate-button">
+                    <button mat-extended-fab class="generate-button" (click)="generateTopic()" [disabled]="isLoading">
                         <img src="assets/icons/ai-icon.png" alt="Icon" class="custom-icon">
-                        Generate topic for me
+                        {{isLoading ? "Generating..." : "Generate topic for me"}}
                     </button>
                 </div>
             </div>
