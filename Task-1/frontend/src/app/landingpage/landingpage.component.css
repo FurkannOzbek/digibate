@@ -28,17 +28,18 @@
 .prompt-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 24px;
   height: 85%;
   padding-left: 26px;
   padding-right: 26px;
+  margin-top: 150px;
 }
 .prompt-wrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
   height: 29%;
+  min-height: 200px;
 }
 .prompt-label {
   height: 24%;
@@ -252,7 +253,33 @@
   vertical-align: middle;
   animation: blink 1s step-end infinite;
 }
+.hidden-section {
+  display: none;
+}
 
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(81, 32, 161, 0.2);
+  border-radius: 50%;
+  border-top-color: #5120a1;
+  margin-right: 12px;
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.generate-button[disabled] {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
 @keyframes blink {
   0%,
   100% {

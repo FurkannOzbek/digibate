@@ -25,30 +25,56 @@ export class LandingpageComponent {
     private apiService: ApiService,
     private typingService: TypingAnimationService
   ) { } 
-   generateTopic() {
-    if(!this.promptInput.trim()) return;
 
+  // Method for reset everything
+  resetForm(){if (this.isTyping) {
+    this.typingService.stopTyping();
+  }
+    
+    this.isTyping = false;
+    this.isLoading = false;
+    this.promptInput = "";
+    this.result = "";
+    console.log("Reset clicked")
+ 
+   
+  }
+
+  // Method for the main generate button using text input
+  generateTopic() {
+    if(!this.promptInput.trim()) return;
+    this.generateContent(this.promptInput);
+  }
+
+  // Method for predefined suggestion buttons
+  generateFromSuggestion(suggestionType: string) {
+    console.log('Sending message:', suggestionType); 
+    this.generateContent(suggestionType);
+  }
+
+  // Common method to handle API calls and response processing
+  private generateContent(message: string) {
     this.isLoading = true;
     this.result = "";
 
-    this.apiService.generateContent(this.promptInput).subscribe({
+    this.apiService.generateContent(message).subscribe({
       next: (response) => {
         this.isTyping = true;
         // Starting the typing animation
         this.typingService.typeText(response.response, 30).subscribe({
-next:(partialText) => {
-          this.result = partialText;
-},
-complete:() => {
-          this.isTyping = false;
-          this.isLoading = false;
-        }
-      });
+          next: (partialText) => {
+            this.result = partialText;
+          },
+          complete: () => {
+            this.isTyping = false;
+            this.isLoading = false;
+          }
+        });
       },
       error: (error) => {
         console.error("Error generating content:", error);
         this.isLoading = false;
       }
-     });
-   }
+    });
+  }
 }

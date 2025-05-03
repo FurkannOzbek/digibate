@@ -13,16 +13,18 @@
                     [(ngModel)]="promptInput"></textarea>
                 <div class="prompt-input-button">
                     <button mat-extended-fab class="generate-button" (click)="generateTopic()" [disabled]="isLoading">
-                        <img src="assets/icons/ai-icon.png" alt="Icon" class="custom-icon">
+                        <div *ngIf="isLoading" class="spinner"></div>
+                        <img *ngIf="!isLoading" src="assets/icons/ai-icon.png" alt="Icon" class="custom-icon">
                         {{isLoading ? "Generating..." : "Generate topic for me"}}
                     </button>
                 </div>
             </div>
         </div>
-        <div class="suggestion-wrapper">
+        <!-- Hiding suggestion section if result being generated and -->
+        <div [class.hidden-section]="result || isTyping" class="suggestion-wrapper">
             <div class="suggestion-title"> Suggested topics based on your Product</div>
             <div class="suggestion-buttons">
-                <div class="suggestion-button">
+                <div class="suggestion-button" (click)="generateFromSuggestion('Promotional')">
                     <div class="suggestion-button-title">
                         <div class="suggestion-button-title-icon">
                             <img src="assets/icons/campaign.png" alt="Icon" class="campaing-icon">
@@ -32,7 +34,7 @@
                     <div class="suggestion-button-description"> Lorem ipsum this is a promt complete without cats...
                     </div>
                 </div>
-                <div class="suggestion-button">
+                <div class="suggestion-button" (click)="generateFromSuggestion('Product Launch')">
                     <div class="suggestion-button-title">
                         <div class="suggestion-button-title-icon">
                             <img src="assets/icons/rocket.png" alt="Icon" class="campaing-icon">
@@ -42,7 +44,7 @@
                     <div class="suggestion-button-description"> Lorem ipsum this is a promt complete without cats...
                     </div>
                 </div>
-                <div class="suggestion-button">
+                <div class="suggestion-button" (click)="generateFromSuggestion('Get Engagement')">
                     <div class="suggestion-button-title">
                         <div class="suggestion-button-title-icon">
                             <img src="assets/icons/favorite.png" alt="Icon" class="campaing-icon">
@@ -52,7 +54,7 @@
                     <div class="suggestion-button-description"> Lorem ipsum this is a promt complete without cats...
                     </div>
                 </div>
-                <div class="suggestion-button">
+                <div class="suggestion-button" (click)="generateFromSuggestion('Announce a sale')">
                     <div class="suggestion-button-title">
                         <div class="suggestion-button-title-icon">
                             <img src="assets/icons/shoppingmode.png" alt="Icon" class="campaing-icon">
@@ -64,18 +66,19 @@
                 </div>
             </div>
         </div>
+        <div class="response-container" *ngIf="result || isTyping">
+            <div class="response-content">
+                {{ result }}
+                <span class="typing-cursor" *ngIf="isTyping">|</span>
+            </div>
+        </div>
+
     </div>
     <!-- Buttons Section -->
     <div class="button-container">
         <div class="button-wrapper">
-            <button mat-stroked-button class="create-scratch-button">Create from scratch</button>
+            <button mat-stroked-button class="create-scratch-button" (click)="resetForm()">Create from scratch</button>
             <button mat-raised-button class="generate-caption-button" color="primary">Generate captions</button>
-        </div>
-    </div>
-    <div class="response-container" *ngIf="result || isTyping">
-        <div class="response-content">
-            {{ result }}
-            <span class="typing-cursor" *ngIf="isTyping">|</span>
         </div>
     </div>
 
