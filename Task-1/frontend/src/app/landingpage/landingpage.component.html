@@ -72,7 +72,12 @@
             <button mat-raised-button class="generate-caption-button" color="primary">Generate captions</button>
         </div>
     </div>
-    <div> {{result}}</div>
+    <div class="response-container" *ngIf="result || isTyping">
+        <div class="response-content">
+            {{ result }}
+            <span class="typing-cursor" *ngIf="isTyping">|</span>
+        </div>
+    </div>
 
 
 </main>

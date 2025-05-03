@@ -227,6 +227,42 @@
   color: white;
 }
 
+/* Typing css */
+.response-container {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #f8f5ff;
+  border-radius: 8px;
+  border: 1px solid #e0d7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.response-content {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: #5120a1;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 765px) {
   .title-container {
     justify-content: center;
