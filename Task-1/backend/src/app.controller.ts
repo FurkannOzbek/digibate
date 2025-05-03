@@ -17,7 +17,7 @@ export class AppController {
 
   // AskAi endpoint to get AI response
   @Post('askAi')
-  askAi(@Body() askAiDto: AskAiDto): string {
+  askAi(@Body() askAiDto: AskAiDto): {response: string} {
     if(!askAiDto.message) {
       throw new BadRequestException('Message should not be empty');}
 

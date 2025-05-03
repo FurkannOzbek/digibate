@@ -23,6 +23,7 @@ export class LandingpageComponent {
     this.apiService.generateContent(this.promptInput).subscribe({
       next: (response) => {
         this.result = response;
+        console.log("Generated content:", this.result);
         this.isLoading = false;
       },
       error: (error) => {
