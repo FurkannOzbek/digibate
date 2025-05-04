@@ -30,14 +30,10 @@ export class LandingpageComponent {
   resetForm(){if (this.isTyping) {
     this.typingService.stopTyping();
   }
-    
     this.isTyping = false;
     this.isLoading = false;
     this.promptInput = "";
     this.result = "";
-    console.log("Reset clicked")
- 
-   
   }
 
   // Method for the main generate button using text input
@@ -48,7 +44,6 @@ export class LandingpageComponent {
 
   // Method for predefined suggestion buttons
   generateFromSuggestion(suggestionType: string) {
-    console.log('Sending message:', suggestionType); 
     this.generateContent(suggestionType);
   }
 
