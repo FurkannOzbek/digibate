@@ -73,3 +73,12 @@ curl -X POST http://localhost:3000/askAi \
 ```
 
 ## Screenshots
+![digi1](https://github.com/user-attachments/assets/3fa5bbfe-d412-445a-9ce6-3e7a4216f98f)
+![digi2](https://github.com/user-attachments/assets/422a0abc-0996-4d72-9166-f51c55b84d48)
+![digi3](https://github.com/user-attachments/assets/4e530608-e2c9-470e-bef1-8355e432c06e)
+
+
+Console log when api call made
+
+
+![digi4](https://github.com/user-attachments/assets/72593c8f-6cca-408a-93b4-fc9f15fc5426)
