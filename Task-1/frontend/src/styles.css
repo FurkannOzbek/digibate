@@ -22,3 +22,14 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.mat-mdc-snack-bar-container.error-snackbar .mdc-snackbar__surface {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+.mat-mdc-snack-bar-container.error-snackbar
+  .mat-mdc-snack-bar-actions
+  .mdc-button__label,
+.mat-mdc-snack-bar-container.error-snackbar .mat-mdc-button {
+  color: white !important; /* Change to your desired color */
+}

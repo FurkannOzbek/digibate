@@ -5,13 +5,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { ApiService } from '../services/api.service';
 import { TypingAnimationService } from '../services/typing-animation.service';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
 @Component({
   selector: 'app-landingpage',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, FormsModule, CommonModule],
+  imports: [MatButtonModule, MatIconModule, FormsModule, CommonModule,MatSnackBarModule],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.css'
 })
@@ -23,7 +24,8 @@ export class LandingpageComponent {
 
    constructor(
     private apiService: ApiService,
-    private typingService: TypingAnimationService
+    private typingService: TypingAnimationService,
+    private snackBar: MatSnackBar
   ) { } 
 
   // Method for reset everything when "Create from scratch" button is clicked
@@ -69,7 +71,18 @@ export class LandingpageComponent {
       error: (error) => {
         console.error("Error generating content:", error);
         this.isLoading = false;
+        this.showErrorSnackbar("Internal server error");
       }
     });
   }
+
+  // Helper method to display error snackbar
+private showErrorSnackbar(message: string): void {
+  this.snackBar.open(message, 'Close', {
+    duration: 555000,
+    panelClass: ['error-snackbar'],
+    horizontalPosition: 'center',
+    verticalPosition: 'bottom'
+  });
+}
 }
