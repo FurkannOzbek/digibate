@@ -11,7 +11,7 @@ app-root {
   overflow-x: hidden;
 }
 * {
-  box-sizing: border-box; /* Add this to include padding in height calculations */
+  box-sizing: border-box;
 }
 
 html,
@@ -31,5 +31,5 @@ body {
   .mat-mdc-snack-bar-actions
   .mdc-button__label,
 .mat-mdc-snack-bar-container.error-snackbar .mat-mdc-button {
-  color: white !important; /* Change to your desired color */
+  color: white !important;
 }
