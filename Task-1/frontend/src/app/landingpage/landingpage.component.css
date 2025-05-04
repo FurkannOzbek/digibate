@@ -379,6 +379,7 @@
   }
   .prompt-container {
     justify-content: normal;
+    margin-top: 10px;
   }
 }
 @media (min-width: 2000px) and (max-width: 2559px) {
