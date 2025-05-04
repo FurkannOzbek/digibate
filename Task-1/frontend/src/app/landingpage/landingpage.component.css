@@ -377,6 +377,10 @@
   .suggestion-buttons {
     margin-top: 20px;
   }
+  .prompt-container {
+    justify-content: normal;
+    margin-top: 40px;
+  }
 }
 @media (min-width: 2560px) {
   .wrapper {
