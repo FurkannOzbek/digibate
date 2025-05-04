@@ -72,6 +72,40 @@ curl -X POST http://localhost:3000/askAi \
   -d '{"message": "Test Message"}'
 ```
 
+## Architechtural and/or Tooling Decisions
+
+As a newcomer to Angular, TypeScript, and NestJS, I made the following architectural and tooling decisions for this project: 
+
+### Leearning and Implementation: 
+
+- **Self-Learning**: Studied documentation for Angular, TypeScript, NestJS
+
+### Frontend Architecture 
+- **Angular Framework** 
+- **Typescript** 
+- **Material UI Components** : Such as buttons and snacbkar
+- **Service Pattern** 
+   - Api communication with backend
+   - Typing animation effects
+   - Error handling and user notification(snackbar)
+
+### Backend Achitecture
+- **NestJS Framework**
+- **Input Validation**: Implemented class-validator for request data validation
+- **Error Handling**
+
+### Integration 
+- **REST API**: Standart communcication between backend-frontend
+- **Response Processing** : Implemented proper error handling for unexpected scenarios
+
+### User Experience Considerations
+- **Loading State** : Added visual indicators during result is being generated
+- **Animation Effects** : Implemented typing animation
+- **Error Feedback** : Used snackbar for notification for user-friendly error messages
+
+ 
+
+
 ## Screenshots
 ![digi1](https://github.com/user-attachments/assets/3fa5bbfe-d412-445a-9ce6-3e7a4216f98f)
 ![digi2](https://github.com/user-attachments/assets/422a0abc-0996-4d72-9166-f51c55b84d48)
