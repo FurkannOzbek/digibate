@@ -8,7 +8,7 @@ export class TypingAnimationService {
   private typingIntervalId: any;
   private activeSubject: Subject<string> | null = null;
 
-  typeText(text: string, speed: number = 30): Observable<string> {
+  typeText(text: string, speed: number = 130): Observable<string> {
     // First stop any ongoing typing animation
     this.stopTyping();
     
@@ -32,7 +32,7 @@ export class TypingAnimationService {
     
     return subject.asObservable();
   }
-
+// Method for stop the typing animation in case ''Create from scratch'' button is clicked or the user wants to generate a new text
   stopTyping(): void {
     if (this.typingIntervalId) {
       clearInterval(this.typingIntervalId);

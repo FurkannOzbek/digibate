@@ -26,7 +26,7 @@ export class LandingpageComponent {
     private typingService: TypingAnimationService
   ) { } 
 
-  // Method for reset everything
+  // Method for reset everything when "Create from scratch" button is clicked
   resetForm(){if (this.isTyping) {
     this.typingService.stopTyping();
   }
@@ -56,7 +56,7 @@ export class LandingpageComponent {
       next: (response) => {
         this.isTyping = true;
         // Starting the typing animation
-        this.typingService.typeText(response.response, 30).subscribe({
+        this.typingService.typeText(response.response, 23).subscribe({
           next: (partialText) => {
             this.result = partialText;
           },
